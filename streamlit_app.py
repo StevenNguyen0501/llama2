@@ -11,6 +11,14 @@ st.set_page_config(
     layout="wide",
         )
 
+# Hide the hamburger menu
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 # Replicate Credentials
 with st.sidebar:
     st.title('Llama-2 VnextGPT Chat bot')
