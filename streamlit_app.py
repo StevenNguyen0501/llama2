@@ -1,9 +1,15 @@
 import streamlit as st
 import replicate
+from PIL import Image
 import os
 
 # App title
-st.set_page_config(page_title="Llama-2 VnextGPT Chat bot")
+im = Image.open("avatar/favicon.png")
+st.set_page_config(
+    page_title="Llama-2 VnextGPT Chat bot",
+    page_icon=im,
+    layout="wide",
+        )
 
 # Replicate Credentials
 with st.sidebar:
