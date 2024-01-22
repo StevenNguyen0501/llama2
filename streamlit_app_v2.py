@@ -8,9 +8,10 @@ st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 # Replicate Credentials
 with st.sidebar:
     st.title('🦙💬 Llama 2 Chatbot')
+    st.write('Write something at here!!!!!')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
-        replicate_api = st.secrets['REPLICATE_API_TOKEN']
+        replicate_api = st.secrets['r8_FX5c9adPSZJQRmlt5TrrL9oDRqz1dJw08JNur']
     else:
         replicate_api = st.text_input('Enter Replicate API token:', type='password')
         if not (replicate_api.startswith('r8_') and len(replicate_api)==40):
@@ -20,14 +21,16 @@ with st.sidebar:
 
     # Refactored from https://github.com/a16z-infra/llama2-chatbot
     st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B', 'Llama2-70B'], key='selected_model')
+    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B', 'Llama2-70B','Mistral'], key='selected_model')
     if selected_model == 'Llama2-7B':
         llm = 'a16z-infra/llama7b-v2-chat:4f0a4744c7295c024a1de15e1a63c880d3da035fa1f49bfd344fe076074c8eea'
     elif selected_model == 'Llama2-13B':
         llm = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
-    else:
+    elif selected_model == 'Llama2-70B':
         llm = 'replicate/llama70b-v2-chat:e951f18578850b652510200860fc4ea62b3b16fac280f83ff32282f87bbd2e48'
-    
+    else:
+        llm = 'mistralai/Mixtral-8x7B-v0.1'
+
     temperature = st.sidebar.slider('temperature', min_value=0.01, max_value=5.0, value=0.1, step=0.01)
     top_p = st.sidebar.slider('top_p', min_value=0.01, max_value=1.0, value=0.9, step=0.01)
     max_length = st.sidebar.slider('max_length', min_value=64, max_value=4096, value=512, step=8)

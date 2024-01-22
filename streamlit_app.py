@@ -36,11 +36,13 @@ with st.sidebar:
     os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
     st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B'], key='selected_model')
+    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B', 'Mistral'], key='selected_model')
     if selected_model == 'Llama2-7B':
         llm = 'a16z-infra/llama7b-v2-chat:4f0a4744c7295c024a1de15e1a63c880d3da035fa1f49bfd344fe076074c8eea'
     elif selected_model == 'Llama2-13B':
         llm = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
+    else:
+        llm = 'mistralai/Mixtral-8x7B-v0.1'
     temperature = st.sidebar.slider('temperature', min_value=0.01, max_value=5.0, value=0.1, step=0.01)
     top_p = st.sidebar.slider('top_p', min_value=0.01, max_value=1.0, value=0.9, step=0.01)
     max_length = st.sidebar.slider('max_length', min_value=256, max_value=1024, value=1000, step=8)
@@ -84,7 +86,8 @@ if prompt := st.chat_input(disabled=not replicate_api):
 
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
-    with st.chat_message("assistant", avatar="https://i.ibb.co/MRXM1Gv/bot-icon.png"):
+    # with st.chat_message("assistant", avatar="https://i.ibb.co/MRXM1Gv/bot-icon.png"):
+    with st.chat_message("assistant", avatar="C:/Users/thinhnp/Desktop/llama2/avatar/bot-icon.png"):
         with st.spinner("Thinking..."):
             response = generate_llama2_response(prompt)
             placeholder = st.empty()
