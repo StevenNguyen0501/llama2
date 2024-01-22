@@ -4,9 +4,9 @@ from PIL import Image
 import os
 
 # App title
-im = Image.open("avatar/favicon.png")
+im = Image.open("avatar/bot-icon.png")
 st.set_page_config(
-    page_title="Llama-2 VnextGPT Chat bot",
+    page_title="VnextGPT Chatbot",
     page_icon=im,
     layout="wide",
         )
