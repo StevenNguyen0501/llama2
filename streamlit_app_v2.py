@@ -8,6 +8,7 @@ st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 # Replicate Credentials
 with st.sidebar:
     st.title('🦙💬 Llama 2 Chatbot')
+    st.write('Write something at here!!!!!')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
         replicate_api = st.secrets['r8_FX5c9adPSZJQRmlt5TrrL9oDRqz1dJw08JNur']
