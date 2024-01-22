@@ -86,8 +86,8 @@ if prompt := st.chat_input(disabled=not replicate_api):
 
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
-    # with st.chat_message("assistant", avatar="https://i.ibb.co/MRXM1Gv/bot-icon.png"):
-    with st.chat_message("assistant", avatar="C:/Users/thinhnp/Desktop/llama2/avatar/bot-icon.png"):
+    with st.chat_message("assistant", avatar="https://i.ibb.co/MRXM1Gv/bot-icon.png"):
+    # with st.chat_message("assistant", avatar="C:/Users/thinhnp/Desktop/llama2/avatar/bot-icon.png"):
         with st.spinner("Thinking..."):
             response = generate_llama2_response(prompt)
             placeholder = st.empty()
