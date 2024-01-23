@@ -4,7 +4,7 @@ from PIL import Image
 import os
 
 # App title
-im = Image.open("avatar/bot-icon.png")
+im = Image.open("avatar/favicon.png")
 st.set_page_config(
     page_title="VnextGPT Chatbot",
     page_icon=im,
@@ -22,7 +22,10 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # Replicate Credentials
+# App title
+im_title = Image.open("avatar/bot-icon.png")
 with st.sidebar:
+    st.im(im_title)
     st.title('Llama-2 VnextGPT Chat bot')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key already provided!', icon='✅')
