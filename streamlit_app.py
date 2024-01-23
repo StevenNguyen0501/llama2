@@ -19,7 +19,7 @@ hide_menu_style = """
         footer {visibility: hidden;}
         </style>
         """
-st.markdown(hide_menu_style, unsafe_allow_html=False)
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # Replicate Credentials
 # App title
